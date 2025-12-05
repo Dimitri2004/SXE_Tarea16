@@ -4,8 +4,10 @@ from datetime import datetime
 from odoo import models, fields, api
 
 class partner_chinese_stats(models.Model):
-    _inherit="res_partner"
-    f_nac=fields.Data("Fecha de nacimiento")
+
+    _inherit = 'res.partner'
+
+    f_nac=fields.Date("Fecha de nacimiento")
     edad=fields.Integer(string="Edad",readonly=True,compute="_calcular_edad",store=True)
     signo_chino=fields.Char(string="Signo Chino",readonly=True,compute="_calcular_chinada",store=True)
 
@@ -14,9 +16,9 @@ class partner_chinese_stats(models.Model):
     def _calcular_edad(self):
         for record in self:
             if record.f_nac:
-                now=datetime.now()
-                operacion=now-record.f_nac
-                record.edad=operacion.year
+                now=datetime.now().year
+                operacion=now-record.f_nac.year
+                record.edad=operacion
             else:
                 record.edad=200
     @api.depends('f_nac')
@@ -29,29 +31,28 @@ class partner_chinese_stats(models.Model):
                     case 0:
                         signo="Mono"
                     case 1:
-                        signo = "Mono"
+                        signo ="Gallo"
                     case 2:
-                        signo = "Mono"
+                        signo ="Perro"
                     case 3:
-                        signo=""
+                        signo="Cerdo"
                     case 4:
-                        signo=""
+                        signo="Rata"
                     case 5:
-                        signo=""
+                        signo="Buey"
                     case 6:
-                        signo=""
+                        signo="Tigre"
                     case 7:
-                        signo=""
+                        signo="Conejo"
                     case 8:
-                        signo=""
+                        signo="Dragon"
                     case 9:
-                        signo=""
+                        signo="Serpiente"
                     case 10:
-                        signo=""
+                        signo="Caballo"
                     case 11:
-                        signo=""
-                    case 12:
-                        singo=""
+                        signo="Cabra"
+                record.signo_chino=signo
 
 
 
