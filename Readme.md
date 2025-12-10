@@ -3,4 +3,4 @@
 ![Captura desde 2025-12-10 10-10-47.png](Images/Captura%20desde%202025-12-10%2010-10-47.png)
 ![Captura desde 2025-12-10 10-10-54.png](Images/Captura%20desde%202025-12-10%2010-10-54.png)
 ![Captura desde 2025-12-10 10-11-06.png](Images/Captura%20desde%202025-12-10%2010-11-06.png)
-![Captura desde 2025-12-10 10-11-30.png](Images/Captura%20desde%202025-12-10%2010-11-30.png)
+![Captura desde 2025-12-10 10-11-30.png](Images/Captura%20desde%202025-12-10%2010-11-30.png)![img.png](Images/img.png)![img_1.png](Images/img_1.png)![img_2.png](Images/img_2.png)
