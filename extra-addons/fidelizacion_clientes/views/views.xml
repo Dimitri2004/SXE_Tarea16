@@ -1,0 +1,100 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="fidelizacion_clientes.list">
+      <field name="name">fidelizacion_clientes list</field>
+      <field name="model">fidelizacion_clientes.fidelizacion_clientes</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+      <record model="ir.ui.view" id="fidelizacion_clientes.list">
+          <field name="name">fidelizacion_clientes list</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_tree"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//list/field[@name='complete_name']" position="after">
+                  <field name="n_fidelidad" string="Nivel de Fidelidad"/>
+              </xpath>
+              <xpath expr="//list/field[@name='n_fidelidad']" position="attributes">
+                  <attribute name="decoration-info">n_fidelidad in ('Nivel PREMIUM','Nivel GOLD')</attribute>
+              </xpath>
+          </field>
+      </record>
+            <record model="ir.ui.view" id="fidelizacion_clientes.kanban">
+          <field name="name">fidelizacion_clientes kanban</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//div[@class='mb-1']/field[@name='display_name']" position="after">
+                  <br/>
+                  <strong><field name="c_socio"/></strong>
+              </xpath>
+          </field>
+      </record>
+      <record model="ir.ui.view" id="fidelizacion_clientes.form">
+          <field name="name">fidelizacion_clientes form</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//notebook" position="inside">
+                  <page string="Membresia">
+                      <group>
+                          <field name="c_socio" string="Codigo de Socio"/>
+                          <field name="n_fidelidad" string="Nivel de Fidelidad"/>
+                      </group>
+                  </page>
+              </xpath>
+          </field>
+      </record>
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="fidelizacion_clientes.action_window">
+      <field name="name">fidelizacion_clientes window</field>
+      <field name="res_model">fidelizacion_clientes.fidelizacion_clientes</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="fidelizacion_clientes.action_server">
+      <field name="name">fidelizacion_clientes server</field>
+      <field name="model_id" ref="model_fidelizacion_clientes_fidelizacion_clientes"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="fidelizacion_clientes" id="fidelizacion_clientes.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="fidelizacion_clientes.menu_1" parent="fidelizacion_clientes.menu_root"/>
+    <menuitem name="Menu 2" id="fidelizacion_clientes.menu_2" parent="fidelizacion_clientes.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="fidelizacion_clientes.menu_1_list" parent="fidelizacion_clientes.menu_1"
+              action="fidelizacion_clientes.action_window"/>
+    <menuitem name="Server to list" id="fidelizacion_clientes" parent="fidelizacion_clientes.menu_2"
+              action="fidelizacion_clientes.action_server"/>
+-->
+  </data>
+</odoo>

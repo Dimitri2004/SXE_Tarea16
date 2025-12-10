@@ -58,3 +58,5 @@ class partner_chinese_stats(models.Model):
 
 
 
+
+

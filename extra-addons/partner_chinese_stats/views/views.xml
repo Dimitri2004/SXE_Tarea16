@@ -33,6 +33,7 @@
           <field name="inherit_id" ref="base.res_partner_kanban_view"/>
           <field name="arch" type="xml">
               <xpath expr="//div[@class='mb-1']/field[@name='display_name']" position="after">
+                  <br/>
                   <field name="signo_chino"/>
               </xpath>
           </field>
@@ -55,6 +56,7 @@
               </xpath>
           </field>
       </record>
+
     <!-- actions opening views on models -->
  <!--
     <record model="ir.actions.act_window" id="partner_chinese_stats.action_window">
